@@ -1,16 +1,18 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 function Header(props) {
   const toggleMode = () => {
     props.setDarkMode(!props.darkMode);
-  }
+  };
 
   return (
-    <nav class="navbar navbar-expand-lg position-sticky">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Jeremy Boyer</a>
+    <nav className="navbar navbar-expand-lg position-sticky mb-5">
+      <div className="container-fluid">
+        <a className="navbar-brand" href="/">
+          Jeremy Boyer
+        </a>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -18,24 +20,41 @@ function Header(props) {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/about">About</a>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              {/* <a className="nav-link" aria-current="page" href="/about">
+                About
+              </a> */}
+              <NavLink to="/" activeClassName="active" className="nav-link">
+                About
+              </NavLink>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/portfolio">Portfolio</a>
+            <li className="nav-item">
+              <NavLink
+                to="/portfolio"
+                activeClassName="active"
+                className="nav-link"
+              >
+                Portfolio
+              </NavLink>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/contact">Contact</a>
+            <li className="nav-item">
+              <NavLink
+                to="/contact"
+                activeClassName="active"
+                className="nav-link"
+              >
+                Contact
+              </NavLink>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-  )
+  );
 }
 
 export default Header;
